@@ -33,7 +33,6 @@
             this.cboUrun = new System.Windows.Forms.ComboBox();
             this.nudAdet = new System.Windows.Forms.NumericUpDown();
             this.btnEkle = new System.Windows.Forms.Button();
-            this.dgvSiparisDetaylar = new System.Windows.Forms.DataGridView();
             this.cboMasaNo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnTasi = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.btbSiparisIptal = new System.Windows.Forms.Button();
             this.btnOdemeAl = new System.Windows.Forms.Button();
             this.btnAnasayfa = new System.Windows.Forms.Button();
+            this.dgvSiparisDetaylar = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetaylar)).BeginInit();
             this.SuspendLayout();
@@ -77,9 +77,19 @@
             // nudAdet
             // 
             this.nudAdet.Location = new System.Drawing.Point(246, 42);
+            this.nudAdet.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudAdet.Name = "nudAdet";
             this.nudAdet.Size = new System.Drawing.Size(71, 29);
             this.nudAdet.TabIndex = 2;
+            this.nudAdet.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnEkle
             // 
@@ -89,24 +99,7 @@
             this.btnEkle.TabIndex = 3;
             this.btnEkle.Text = "EKLE";
             this.btnEkle.UseVisualStyleBackColor = true;
-            // 
-            // dgvSiparisDetaylar
-            // 
-            this.dgvSiparisDetaylar.AllowUserToAddRows = false;
-            this.dgvSiparisDetaylar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSiparisDetaylar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSiparisDetaylar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvSiparisDetaylar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSiparisDetaylar.Location = new System.Drawing.Point(17, 78);
-            this.dgvSiparisDetaylar.MultiSelect = false;
-            this.dgvSiparisDetaylar.Name = "dgvSiparisDetaylar";
-            this.dgvSiparisDetaylar.ReadOnly = true;
-            this.dgvSiparisDetaylar.RowHeadersVisible = false;
-            this.dgvSiparisDetaylar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSiparisDetaylar.Size = new System.Drawing.Size(437, 412);
-            this.dgvSiparisDetaylar.TabIndex = 4;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // cboMasaNo
             // 
@@ -182,6 +175,7 @@
             this.btbSiparisIptal.TabIndex = 3;
             this.btbSiparisIptal.Text = "SİPARİŞ İPTAL";
             this.btbSiparisIptal.UseVisualStyleBackColor = false;
+            this.btbSiparisIptal.Click += new System.EventHandler(this.btbSiparisIptal_Click);
             // 
             // btnOdemeAl
             // 
@@ -194,6 +188,7 @@
             this.btnOdemeAl.TabIndex = 3;
             this.btnOdemeAl.Text = "ÖDEME AL";
             this.btnOdemeAl.UseVisualStyleBackColor = false;
+            this.btnOdemeAl.Click += new System.EventHandler(this.btnOdemeAl_Click);
             // 
             // btnAnasayfa
             // 
@@ -206,6 +201,26 @@
             this.btnAnasayfa.TabIndex = 3;
             this.btnAnasayfa.Text = "ANASAYFAYA DÖN";
             this.btnAnasayfa.UseVisualStyleBackColor = false;
+            this.btnAnasayfa.Click += new System.EventHandler(this.btnAnasayfa_Click);
+            // 
+            // dgvSiparisDetaylar
+            // 
+            this.dgvSiparisDetaylar.AllowUserToAddRows = false;
+            this.dgvSiparisDetaylar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSiparisDetaylar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSiparisDetaylar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvSiparisDetaylar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiparisDetaylar.Location = new System.Drawing.Point(17, 78);
+            this.dgvSiparisDetaylar.MultiSelect = false;
+            this.dgvSiparisDetaylar.Name = "dgvSiparisDetaylar";
+            this.dgvSiparisDetaylar.ReadOnly = true;
+            this.dgvSiparisDetaylar.RowHeadersVisible = false;
+            this.dgvSiparisDetaylar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSiparisDetaylar.Size = new System.Drawing.Size(437, 412);
+            this.dgvSiparisDetaylar.TabIndex = 4;
+            this.dgvSiparisDetaylar.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvSiparisDetaylar_UserDeletingRow);
             // 
             // SiparisForm
             // 
@@ -230,7 +245,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "SiparisForm";
-            this.Text = "SiparisForm";
+            this.Text = "Masa 00";
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiparisDetaylar)).EndInit();
             this.ResumeLayout(false);
@@ -245,7 +260,6 @@
         private System.Windows.Forms.ComboBox cboUrun;
         private System.Windows.Forms.NumericUpDown nudAdet;
         private System.Windows.Forms.Button btnEkle;
-        private System.Windows.Forms.DataGridView dgvSiparisDetaylar;
         private System.Windows.Forms.ComboBox cboMasaNo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnTasi;
@@ -255,5 +269,6 @@
         private System.Windows.Forms.Button btbSiparisIptal;
         private System.Windows.Forms.Button btnOdemeAl;
         private System.Windows.Forms.Button btnAnasayfa;
+        private System.Windows.Forms.DataGridView dgvSiparisDetaylar;
     }
 }
