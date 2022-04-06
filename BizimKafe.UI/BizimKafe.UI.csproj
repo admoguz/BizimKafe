@@ -52,11 +52,11 @@
     <Compile Include="AnaForm.Designer.cs">
       <DependentUpon>AnaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GecmisSiparisler.cs">
+    <Compile Include="GecmisSiparislerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GecmisSiparisler.Designer.cs">
-      <DependentUpon>GecmisSiparisler.cs</DependentUpon>
+    <Compile Include="GecmisSiparislerForm.Designer.cs">
+      <DependentUpon>GecmisSiparislerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,8 +75,8 @@
     <EmbeddedResource Include="AnaForm.resx">
       <DependentUpon>AnaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GecmisSiparisler.resx">
-      <DependentUpon>GecmisSiparisler.cs</DependentUpon>
+    <EmbeddedResource Include="GecmisSiparislerForm.resx">
+      <DependentUpon>GecmisSiparislerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
